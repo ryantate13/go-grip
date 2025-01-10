@@ -1,16 +1,6 @@
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="#">
-    <img src=".github/docs/logo-1.png" alt="Logo" height="120">
-  </a>
+# `go-grip`
 
-  <h3 align="center">go-grip</h3>
-
-  <p align="center">
-    Render your markdown files local<br>- with the look of GitHub
-  </p>
-</div>
+Render your markdown files locally with the look of GitHub.
 
 ## :question: About
 
