@@ -45,7 +45,7 @@ graph TD;
 To install go-grip, simply:
 
 ```bash
-go install github.com/chrishrb/go-grip@latest
+go install github.com/ryantate13/go-grip@latest
 ```
 
 > [!TIP]

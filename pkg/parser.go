@@ -13,11 +13,12 @@ import (
 	chroma_html "github.com/alecthomas/chroma/v2/formatters/html"
 	"github.com/alecthomas/chroma/v2/lexers"
 	"github.com/alecthomas/chroma/v2/styles"
-	"github.com/chrishrb/go-grip/defaults"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/ast"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
+
+	"github.com/ryantate13/go-grip/defaults"
 )
 
 var blockquotes = []string{"Note", "Tip", "Important", "Warning", "Caution"}
@@ -25,7 +26,7 @@ var blockquotes = []string{"Note", "Tip", "Important", "Warning", "Caution"}
 func (client *Client) MdToHTML(bytes []byte) []byte {
 	extensions := parser.NoIntraEmphasis | parser.Tables | parser.FencedCode |
 		parser.Autolink | parser.Strikethrough | parser.SpaceHeadings | parser.HeadingIDs |
-		parser.BackslashLineBreak | parser.MathJax | parser.HardLineBreak | parser.OrderedListStart
+		parser.BackslashLineBreak | parser.MathJax | parser.OrderedListStart
 	p := parser.NewWithExtensions(extensions)
 	doc := p.Parse(bytes)
 

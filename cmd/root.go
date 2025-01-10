@@ -4,8 +4,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/chrishrb/go-grip/pkg"
 	"github.com/spf13/cobra"
+
+	"github.com/ryantate13/go-grip/pkg"
 )
 
 var rootCmd = &cobra.Command{

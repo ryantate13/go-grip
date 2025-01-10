@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"path"
 	"regexp"
 	"strings"
@@ -15,7 +16,8 @@ import (
 	"github.com/aarol/reload"
 	chroma_html "github.com/alecthomas/chroma/v2/formatters/html"
 	"github.com/alecthomas/chroma/v2/styles"
-	"github.com/chrishrb/go-grip/defaults"
+
+	"github.com/ryantate13/go-grip/defaults"
 )
 
 type htmlStruct struct {
@@ -26,9 +28,25 @@ type htmlStruct struct {
 	CssCodeDark  string
 }
 
+func must[T any](val T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+	return val
+}
+
 func (client *Client) Serve(file string) error {
 	directory := path.Dir(file)
 	filename := path.Base(file)
+
+	const index = "README.md"
+	if filename == "." {
+		if wd, err := os.Getwd(); err == nil {
+			if _, err := os.Stat(path.Join(wd, index)); err == nil {
+				filename = index
+			}
+		}
+	}
 
 	reload := reload.New(directory)
 	reload.DebugLog = log.New(io.Discard, "", 0)

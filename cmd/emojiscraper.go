@@ -6,7 +6,7 @@ package cmd
 import (
 	"errors"
 
-	"github.com/chrishrb/go-grip/internal"
+	"github.com/ryantate13/go-grip/internal"
 	"github.com/spf13/cobra"
 )
 
